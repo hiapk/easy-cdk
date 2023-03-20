@@ -16,10 +16,9 @@ public class FilterFileConfig {
     @Autowired
     private FileListener fileListener;
 
-    public void FileFilter(String rootDir) {
+    public void startMonitor(String rootDir) {
         // 轮询间隔 1 秒
         long interval = TimeUnit.SECONDS.toMillis(1);
-        System.out.println(interval);
         // 创建过滤器
 //        IOFileFilter directories = FileFilterUtils.and(
 //                FileFilterUtils.directoryFileFilter(),
@@ -38,7 +37,7 @@ public class FilterFileConfig {
         // 开始监控
         try {
             monitor.start();
-            log.info("开始监听--------");
+            log.info("开始监听");
         } catch (Exception e) {
             log.error("异常处理", e);
         }
